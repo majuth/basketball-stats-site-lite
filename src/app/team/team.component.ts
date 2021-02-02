@@ -71,21 +71,19 @@ export class TeamComponent implements OnInit {
     this.loadSeasonYear();
 
     //add interface to get team stats and store it
-    this.http.get<rawTeamAvgData>("https://data.nba.net/data/10s/prod/v1/" +this.currentSeason +"/team_stats_rankings.json").subscribe( res => (this.teamAvg = res.league.standard.regularSeason.teams));
+    //this.http.get<rawTeamAvgData>("https://data.nba.net/data/10s/prod/v1/" +this.currentSeason +"/team_stats_rankings.json").subscribe( res => (this.teamAvg = res.league.standard.regularSeason.teams));
     //console.log(this.teamAvg);
   }
 
   loadSeasonYear(){
-    var startDate = new Date();
-    var endDate = new Date();
+    var date = new Date();
+    if(date.getMonth()<8){
+      date.setFullYear(date.getFullYear() -1);
+    }
 
-    startDate.setMonth(startDate.getMonth() - 5);
-
-    
-    var startdateString = startDate.getFullYear() + "-" + (startDate.getMonth() + 1) + "-" + startDate.getDate();
-    var enddateString = endDate.getFullYear() + "-" + (endDate.getMonth() + 1) + "-" + endDate.getDate();
+    this.data.changeSeason(date.getFullYear());
     //this.http.get<todayData>("http://data.nba.net/prod/v3/today.json").subscribe( res => (this.data.changeSeason(res.seasonScheduleYear)));
-    this.http.get<gameData>("https://www.balldontlie.io/api/v1/games?team_ids[]=" + this.teamID + "&start_date=%27"+ startdateString + "&end_date=%27"+ enddateString +"%27&per_page=5").subscribe( res => (this.data.changeSeason(res.data[0].season)));
+    //this.http.get<gameData>("https://www.balldontlie.io/api/v1/games?team_ids[]=" + this.teamID + "&start_date=%27"+ startdateString + "&end_date=%27"+ enddateString +"%27&per_page=5").subscribe( res => (this.data.changeSeason(res.data[0].season)));
     //console.log(this.currentSeason);
   }
 

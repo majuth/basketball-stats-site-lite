@@ -10,7 +10,7 @@
     <div class="container contentBox">
         <div class="row currentInfo">
           <div class="col-md-3 col-sm-7 col-7">
-            <img alt="{{playerData[4]}} headshot" src="{{!(playerPicData == null)  ? 'https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/' + playerPicData.personId + '.png' : '../assets/picUnavailable.jpg'}}" class="headshot">
+            <img alt="{{playerData[4]}} headshot" src="https://www.rit.edu/nsfadvance/sites/rit.edu.nsfadvance/files/default_images/photo-unavailable.png" class="headshot">
           </div>
           <div class="col-md-9 col-sm-5 col-5">
             {{playerData[1] + " " + playerData[4]}}
@@ -24,28 +24,28 @@
         </div>
         <div class="row currentStats">
           <div class="col-md-3 col-sm-6 col-6">
-            PPG {{!(playerPicData == null)  ? playerCurrentSeasonStats.pts : 'N/A'}}
+            PPG {{!(playerCurrentSeasonStats == null)  ? playerCurrentSeasonStats.pts : 'N/A'}}
           </div>
           <div class="col-md-3 col-sm-6 col-6">
-            RPG {{!(playerPicData == null)  ? playerCurrentSeasonStats.reb : 'N/A'}}
+            RPG {{!(playerCurrentSeasonStats == null)  ? playerCurrentSeasonStats.reb : 'N/A'}}
           </div>
           <div class="col-md-3 col-sm-6 col-6">
-            APG {{!(playerPicData == null)  ? playerCurrentSeasonStats.ast : 'N/A'}}
+            APG {{!(playerCurrentSeasonStats == null)  ? playerCurrentSeasonStats.ast : 'N/A'}}
           </div>
           <div class="col-md-3 col-sm-6 col-6">
-            SPG {{!(playerPicData == null)  ? playerCurrentSeasonStats.stl : 'N/A'}}
+            SPG {{!(playerCurrentSeasonStats == null)  ? playerCurrentSeasonStats.stl : 'N/A'}}
           </div>
           <div class="col-md-3 col-sm-6 col-6">
-            BPG {{!(playerPicData == null)  ? playerCurrentSeasonStats.blk : 'N/A'}}
+            BPG {{!(playerCurrentSeasonStats == null)  ? playerCurrentSeasonStats.blk : 'N/A'}}
           </div>
           <div class="col-md-3 col-sm-6 col-6">
-            FG% {{!(playerPicData == null)  ? playerCurrentSeasonStats.fg_pct : 'N/A'}}
+            FG% {{!(playerCurrentSeasonStats == null)  ? playerCurrentSeasonStats.fg_pct : 'N/A'}}
           </div>
           <div class="col-md-3 col-sm-6 col-6">
-            3P% {{!(playerPicData == null)  ? playerCurrentSeasonStats.fg3_pct : 'N/A'}}
+            3P% {{!(playerCurrentSeasonStats == null)  ? playerCurrentSeasonStats.fg3_pct : 'N/A'}}
           </div>
           <div class="col-md-3 col-sm-6 col-6">
-            FT% {{!(playerPicData == null)  ? playerCurrentSeasonStats.ft_pct : 'N/A'}}
+            FT% {{!(playerCurrentSeasonStats == null)  ? playerCurrentSeasonStats.ft_pct : 'N/A'}}
           </div>
           
         </div>

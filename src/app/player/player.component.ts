@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
-import { PlayerpicService } from '../playerpic.service';
 import { HttpClient } from '@angular/common/http';
 import { gameData, gameStats, playerCurrentSeasonStats, playerGameStats, playerIDData, rawPlayerIDData, team } from '../interfaces';
 import { Observable } from 'rxjs';
@@ -13,14 +12,13 @@ import { pipe } from 'rxjs';
 })
 export class PlayerComponent implements OnInit {
 
-  constructor(private data: DataService, private http: HttpClient, private playerpic: PlayerpicService) { }
+  constructor(private data: DataService, private http: HttpClient) { }
 
   playerID: number;
   playerData: Array<string>;
   currentSeason;
   playerCurrentSeasonStats;
   playerIDData: playerIDData[];
-  playerPicData: playerIDData;
   playerGameStats: gameStats[];
   playerOldSeasonStats = [];
   showContent = true;
@@ -47,7 +45,6 @@ export class PlayerComponent implements OnInit {
 
         this.playerData = playerData;
 
-    this.getPlayerPic();
     if(this.showContent == true){
     this.getPlayerTeam();
     this.getSeasonStats();
@@ -63,32 +60,6 @@ export class PlayerComponent implements OnInit {
     console.log(this.playerCurrentSeasonStats);
   }
 
-  getPlayerPic(){
-    this.playerIDData = this.playerpic.playerData;
-    console.log(this.playerpic.playerData);
-
-    var playerFound = this.playerIDData.filter(val => (val.firstName === this.playerData[1] && val.lastName === this.playerData[4]))[0];
-
-    console.log(playerFound)
-    this.playerPicData = playerFound;
-    if(playerFound == null){
-      this.showContent = false;
-    }else{
-      this.showContent = true;
-    }
-
-    /*
-    var temp = []
-    for (let player in this.playerIDData)
-      temp.push(JSON.parse(this.playerIDData[player]))
-    console.log(temp);
-
-    var name = this.playerData[4] + ", " + this.playerData[1];
-
-    var spot = temp.findIndex(element => (element.includes(name)));
-    console.log(spot);
-    */
-  }
 
   loadPastGames(){
     var startDate = new Date();
@@ -122,17 +93,4 @@ export class PlayerComponent implements OnInit {
     console.log(playerTeam);
   }
 
-  loadSeasonYear(){
-    var startDate = new Date();
-    var endDate = new Date();
-
-    startDate.setMonth(startDate.getMonth() - 5);
-
-    
-    var startdateString = startDate.getFullYear() + "-" + (startDate.getMonth() + 1) + "-" + startDate.getDate();
-    var enddateString = endDate.getFullYear() + "-" + (endDate.getMonth() + 1) + "-" + endDate.getDate();
-    //this.http.get<todayData>("http://data.nba.net/prod/v3/today.json").subscribe( res => (this.data.changeSeason(res.seasonScheduleYear)));
-    this.http.get<gameData>("https://www.balldontlie.io/api/v1/games?team_ids[]=1&start_date=%27"+ startdateString + "&end_date=%27"+ enddateString +"%27&per_page=5").subscribe( res => (this.data.changeSeason(res.data[0].season)));
-    //console.log(this.currentSeason);
-  }
 }

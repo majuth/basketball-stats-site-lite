@@ -10,7 +10,7 @@
     <div class="container contentBox">
         <div class="row currentInfo">
           <div class="col-md-3 col-sm-7 col-7">
-            <img alt="{{teamData[5]}} logo" src="../../assets/teamLogos/{{teamID}}.svg" class="mainTeamLogo">
+            <img alt="{{teamData[5]}} logo" src="assets/teamLogos/{{teamID}}.svg" class="mainTeamLogo">
           </div>
           <div class="col-md-9 col-sm-5 col-5">
             {{teamData[5] + " (" + teamData[1] + ")"}}
@@ -62,7 +62,7 @@
         <tr *ngFor="let game of teamGames">
           <td id="dateCol">{{game.date| date: 'EEE MM-dd-yyyy'}}</td>
           <td id="homeCol">HOME</td>
-          <td id="scoreCol" style="text-align: center;"><img alt="{{teamData[5]}} logo" style="height: 30px" src="../../assets/teamLogos/{{game.home_team.id}}.svg">{{game.home_team.abbreviation + " " + game.home_team_score + " - " + game.visitor_team_score + " " + game.visitor_team.abbreviation}}<img alt="{{teamData[5]}} logo" style="height: 30px" src="../../assets/teamLogos/{{game.visitor_team.id}}.svg"></td>
+          <td id="scoreCol" style="text-align: center;"><img alt="{{teamData[5]}} logo" style="height: 30px" src="assets/teamLogos/{{game.home_team.id}}.svg">{{game.home_team.abbreviation + " " + game.home_team_score + " - " + game.visitor_team_score + " " + game.visitor_team.abbreviation}}<img alt="{{teamData[5]}} logo" style="height: 30px" src="assets/teamLogos/{{game.visitor_team.id}}.svg"></td>
           <td id="awayCol"> AWAY</td>
           <td id="timeCol"> {{!!(game.status == 'Final' || game.period != 4)  ? game.status : game.period + " |" + game.time}}</td>
         </tr>
@@ -70,4 +70,4 @@
     </div>
 </div>
 
-<img class="loadingImg" *ngIf="loading" style="height: 100px" src="../../assets/loading.gif" alt="loading">
+<img class="loadingImg" *ngIf="loading" style="height: 100px" src="assets/loading.gif" alt="loading">

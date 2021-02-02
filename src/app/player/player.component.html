@@ -19,7 +19,7 @@
             <br>
             {{!(playerData[7] == null)  ? playerData[7] + " lbs" : ""}}
             <br>
-            <img alt="player's team logo" style="height: 30px" src="../../assets/teamLogos/{{playerTeamID}}.svg">
+            <img alt="player's team logo" style="height: 30px" src="assets/teamLogos/{{playerTeamID}}.svg">
           </div>
         </div>
         <div class="row currentStats">
@@ -80,7 +80,7 @@
           </tr>
           <tr *ngFor="let stat of playerGameStats">
             <td class="dateCol">{{stat.game.date| date: 'EEE MM-dd-yyyy'}}</td>
-            <td><img alt="team1 logo" style="height: 30px" src="../../assets/teamLogos/{{stat.game.home_team_id}}.svg"> VS <img alt="team2 logo" style="height: 30px" src="../../assets/teamLogos/{{stat.game.visitor_team_id}}.svg"></td>
+            <td><img alt="team1 logo" style="height: 30px" src="assets/teamLogos/{{stat.game.home_team_id}}.svg"> VS <img alt="team2 logo" style="height: 30px" src="assets/teamLogos/{{stat.game.visitor_team_id}}.svg"></td>
             
             <td> {{!!(stat.game.status == 'Final' || stat.game.period != 4)  ? stat.game.status : stat.game.period + " |" + stat.game.time}} </td>
             <td>{{stat.min}}</td>
@@ -172,7 +172,7 @@
 </div>
 
 </div>
-<img class="loadingImg" *ngIf="loading" style="height: 200px" src="../../assets/loading.gif" alt="loading">
+<img class="loadingImg" *ngIf="loading" style="height: 200px" src="assets/loading.gif" alt="loading">
 
 <div>
   <!--

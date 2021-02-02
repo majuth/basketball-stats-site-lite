@@ -5,7 +5,7 @@ Basketball Stats Site is a demo stats site that shows up to date NBA player and 
 
 ## How to view the website
 
-This site is being optimized to be viewed on the web, for local full view visit BasketballStatsSite (non-lite)
+This site can be viewed [here](https://majuthkira.github.io/basketball-stats-site-lite/index.html), for local full view visit [BasketballStatsSite (non-lite)](https://github.com/majuthkira/basketball-stats-site/)
 
 
 ## How it works

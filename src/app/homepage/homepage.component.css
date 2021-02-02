@@ -1,0 +1,19 @@
+.mainContent{
+    display: block;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 992px) {
+    
+    ::ng-deep .mat-form-field-wrapper{
+      width: 300px;
+    }
+
+    .mainContent{
+        max-width: 486px;
+    }
+}
+    
+::ng-deep .mat-form-field{
+    width: 100%;
+}

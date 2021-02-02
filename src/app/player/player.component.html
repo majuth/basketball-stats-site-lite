@@ -1,0 +1,184 @@
+<!--
+<div *ngFor="let item of playerData">
+  {{item}}
+</div>
+-->
+
+<div *ngIf="!loading">
+<div *ngIf="showContent">
+    <br>
+    <div class="container contentBox">
+        <div class="row currentInfo">
+          <div class="col-md-3 col-sm-7 col-7">
+            <img alt="{{playerData[4]}} headshot" src="{{!(playerPicData == null)  ? 'https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/' + playerPicData.personId + '.png' : '../assets/picUnavailable.jpg'}}" class="headshot">
+          </div>
+          <div class="col-md-9 col-sm-5 col-5">
+            {{playerData[1] + " " + playerData[4]}}
+            <br>
+            {{!(playerData[2] == null)  ? playerData[2] + "\' " + playerData[3] + "\"\t\t" : ""}} {{!(playerData[5] == null)  ? playerData[5] : ""}}
+            <br>
+            {{!(playerData[7] == null)  ? playerData[7] + " lbs" : ""}}
+            <br>
+            <img alt="player's team logo" style="height: 30px" src="../../assets/teamLogos/{{playerTeamID}}.svg">
+          </div>
+        </div>
+        <div class="row currentStats">
+          <div class="col-md-3 col-sm-6 col-6">
+            PPG {{!(playerPicData == null)  ? playerCurrentSeasonStats.pts : 'N/A'}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-6">
+            RPG {{!(playerPicData == null)  ? playerCurrentSeasonStats.reb : 'N/A'}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-6">
+            APG {{!(playerPicData == null)  ? playerCurrentSeasonStats.ast : 'N/A'}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-6">
+            SPG {{!(playerPicData == null)  ? playerCurrentSeasonStats.stl : 'N/A'}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-6">
+            BPG {{!(playerPicData == null)  ? playerCurrentSeasonStats.blk : 'N/A'}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-6">
+            FG% {{!(playerPicData == null)  ? playerCurrentSeasonStats.fg_pct : 'N/A'}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-6">
+            3P% {{!(playerPicData == null)  ? playerCurrentSeasonStats.fg3_pct : 'N/A'}}
+          </div>
+          <div class="col-md-3 col-sm-6 col-6">
+            FT% {{!(playerPicData == null)  ? playerCurrentSeasonStats.ft_pct : 'N/A'}}
+          </div>
+          
+        </div>
+      </div>
+
+      <h2>Past Games</h2>
+      <div class="statsTableWrapper">
+        <table class="statsTable">
+          <tr class="statsTableHeader">
+            <th class="dateCol">Date</th>
+            <th> Matchup </th>
+            <th> Time </th>
+            <th>Min</th>
+            <th>Pts</th>
+            <th>Reb  </th>
+            <th>Oreb</th>
+            <th>Dreb</th>
+            <th>Ast</th>
+            <th>Stl  </th>
+            <th>Blk</th>
+            <th>To</th>
+            <th>Pf</th>
+            <th>Fgm</th>
+            <th>Fga</th>
+            <th>Fg3m</th>
+            <th>Fg3a</th>
+            <th> Ftm</th>
+            <th>Fta</th>
+            <th>Fg pct</th>
+            <th>Fg3 pct</th>
+            <th class="ftpctCol">Ft pct</th>
+          </tr>
+          <tr *ngFor="let stat of playerGameStats">
+            <td class="dateCol">{{stat.game.date| date: 'EEE MM-dd-yyyy'}}</td>
+            <td><img alt="team1 logo" style="height: 30px" src="../../assets/teamLogos/{{stat.game.home_team_id}}.svg"> VS <img alt="team2 logo" style="height: 30px" src="../../assets/teamLogos/{{stat.game.visitor_team_id}}.svg"></td>
+            
+            <td> {{!!(stat.game.status == 'Final' || stat.game.period != 4)  ? stat.game.status : stat.game.period + " |" + stat.game.time}} </td>
+            <td>{{stat.min}}</td>
+            <td>{{stat.pts}}</td>
+            <td>{{stat.reb}}</td>
+            <td>{{stat.oreb}}</td>
+            <td>{{stat.dreb}}</td>
+            <td>{{stat.ast}}</td>
+            <td>{{stat.stl}}</td>
+            <td>{{stat.blk}}</td>
+            <td>{{stat.turnover}}</td>
+            <td>{{stat.pf}}</td>
+            <td>{{stat.fgm}}</td>
+            <td>{{stat.fga}}</td>
+            <td>{{stat.fg3m}}</td>
+            <td>{{stat.fg3a}}</td>
+            <td>{{stat.ftm}}</td>
+            <td>{{stat.fta}}</td>
+            <td>{{stat.fg_pct}}</td>
+            <td>{{stat.fg3_pct}}</td>
+            <td class="ftpctCol">{{stat.ft_pct}}</td>
+          </tr>
+        </table>
+      </div>
+
+
+      <h2>Season Averages (Past 2 only)</h2>
+      <div class="statsTableWrapper">
+        <table class="statsTable">
+          <tr class="statsTableHeader">
+            <th class="dateCol">Season</th>
+            <th>Games Played</th>
+            <th>Min</th>
+            <th>Pts</th>
+            <th>Reb  </th>
+            <th>Oreb</th>
+            <th>Dreb</th>
+            <th>Ast</th>
+            <th>Stl  </th>
+            <th>Blk</th>
+            <th>To</th>
+            <th>Pf</th>
+            <th>Fgm</th>
+            <th>Fga</th>
+            <th>Fg3m</th>
+            <th>Fg3a</th>
+            <th> Ftm</th>
+            <th>Fta</th>
+            <th>Fg pct</th>
+            <th>Fg3 pct</th>
+            <th class="ftpctCol">Ft pct</th>
+          </tr>
+          
+          
+          <tr *ngFor="let year of playerOldSeasonStats">
+            <td class="dateCol">{{year.season}}</td>
+            <td>{{year.games_played}}</td>
+            <td>{{year.min}}</td>
+            <td>{{year.pts}}</td>
+            <td>{{year.reb}}</td>
+            <td>{{year.oreb}}</td>
+            <td>{{year.dreb}}</td>
+            <td>{{year.ast}}</td>
+            <td>{{year.stl}}</td>
+            <td>{{year.blk}}</td>
+            <td>{{year.turnover}}</td>
+            <td>{{year.pf}}</td>
+            <td>{{year.fgm}}</td>
+            <td>{{year.fga}}</td>
+            <td>{{year.fg3m}}</td>
+            <td>{{year.fg3a}}</td>
+            <td>{{year.ftm}}</td>
+            <td>{{year.fta}}</td>
+            <td>{{year.fg_pct}}</td>
+            <td>{{year.fg3_pct}}</td>
+            <td class="ftpctCol">{{year.ft_pct}}</td>
+          </tr>
+          
+        </table>
+
+      </div>
+
+</div>
+
+<div *ngIf="!showContent">
+  <h3>Content unavailable for selected player</h3>
+  <br>
+  <h4>Due to data availability only current player stats avaialble.</h4>
+</div>
+
+</div>
+<img class="loadingImg" *ngIf="loading" style="height: 200px" src="../../assets/loading.gif" alt="loading">
+
+<div>
+  <!--
+  {{playerIDData[0].personId}}
+  {{playerIDData[0].firstName}}
+  {{playerIDData[0].lastName}}
+
+   {{playerIDData | filter : {'firstName': "Jaylen"} }}-->
+</div>

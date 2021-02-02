@@ -1,0 +1,25 @@
+<br>
+<br>
+<br>
+<div class="mainContent col-lg-6 col-md-8 col-sm-12 col-12">
+<h2><img style="vertical-align: middle; height: 30px;" src ="./assets/basketball.svg" > <span style="vertical-align: middle; font-size: 30px;">Basketball Stats Site</span></h2>
+<h3> Up to date NBA player and team statistics in an easy to use site.</h3>
+<br>
+<h4> Begin your search by searching for a Player or Team:</h4>
+<form class="searchbarForm">
+  <mat-form-field>
+    <input class="searchbarInput" type="text" name="search"
+          placeholder="Search"
+          aria-label="Number"
+          matInput
+          [formControl]="myControl"
+          [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="submitForm()">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+</div>
+

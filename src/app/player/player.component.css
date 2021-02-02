@@ -1,0 +1,16 @@
+.headshot{
+ height: 180px;
+}
+
+h2{
+    text-align: center;
+    margin-top: 16px;
+}
+
+.dateCol{
+    padding-left: 10px;
+}
+
+.ftpctCol{
+    padding-right: 8px;
+}

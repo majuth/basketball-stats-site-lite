@@ -1,0 +1,40 @@
+/*
+.searchbarForm {
+}
+
+.searchbarInput{
+}
+*/
+@media only screen and (min-width: 992px) {
+.navButtons{
+    padding-top: 10px;
+}
+
+::ng-deep .mat-form-field-wrapper{
+  width: 300px;
+}
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: white !important;
+}
+  
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color:  rgba(255,255,255,.5)!important;
+} 
+  
+::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: white !important;;
+}
+
+::ng-deep.mat-form-field-empty {
+  color: rgba(255,255,255,.5)!important;
+}
+
+::ng-deep .mat-form-field{
+  width: 100%;
+  color: white;
+}

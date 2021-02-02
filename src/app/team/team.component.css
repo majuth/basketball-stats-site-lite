@@ -1,0 +1,64 @@
+.mainTeamLogo{
+    height: 180px;
+}
+
+h2{
+    text-align: center;
+}
+
+.statsTable{
+    width: 600px;
+}
+
+@media only screen and (max-device-width: 395px) {
+    .statsTable{
+        width: 395px;
+    }
+    #homeCol{
+        display: none;
+    }
+    #awayCol{
+        display: none;
+    }
+}
+
+@media only screen and (min-device-width: 396px) and (max-device-width: 600px) {
+    .statsTable{
+        width: 100%;
+    }
+    #homeCol{
+        display: none;
+    }
+    #awayCol{
+        display: none;
+    }
+
+
+ }
+
+@media only screen and (min-device-width: 600px) {
+    
+ }
+
+
+#homeCol{
+    text-align: center;
+}
+
+#awayCol{
+    text-align: center;
+}
+
+#dateCol{
+    width: 115px;
+    padding-left: 10px;
+}
+
+#timeCol{
+    width: 85px;
+    padding-right: 10px;
+}
+
+h2{
+    margin-top: 16px;
+}

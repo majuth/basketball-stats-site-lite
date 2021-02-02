@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:  #263238">
+    <a class="navbar-brand" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="changeToHomepage()"><div><img style="vertical-align: middle;" src ="./assets/basketball.svg" > <span style="vertical-align: middle;">Basketball Stats Site</span></div></a>
+    <button style="border: 0" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">       
+        <li class="nav-item">
+          <form class="searchbarForm">
+              <mat-form-field>
+                <input class="searchbarInput" type="text" name="search"
+                      placeholder="Search"
+                      aria-label="Number"
+                      matInput
+                      [formControl]="myControl"
+                      [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="submitForm()">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+          </form>
+        </li>
+        <li class="nav-item dropdown navButtons">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Players
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <h3 class="dropdown-header" style="margin-bottom: 0;">Top 5</h3>
+            <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Lebron James')">Lebron James</a>
+            <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Giannis Antetokounmpo')">Giannis Antetokounmpo</a>
+            <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Kawhi Leonard')">Kawhi Leonard</a>
+            <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('James Harden')">James Harden</a>
+            <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Stephen Curry')">Stephen Curry</a>
+            
+          </div>
+        </li>
+        <li class="nav-item dropdown navButtons">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Teams
+            </a>
+            <div class="dropdown-menu" style="max-height: 300px; overflow-y: scroll;" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Atlanta Hawks')">Atlanta Hawks</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Boston Celtics')">Boston Celtics</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Brooklyn Nets')">Brooklyn Nets</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Charlotte Hornets')">Charlotte Hornets</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Chicago Bulls')">Chicago Bulls</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Cleveland Cavaliers')">Cleveland Cavaliers</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Dallas Mavericks')">Dallas Mavericks</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Denver Nuggets')">Denver Nuggets</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Detroit Pistons')">Detroit Pistons</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Golden State Warriors')">Golden State Warriors</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Houston Rockets')">Houston Rockets</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Indiana Pacers')">Indiana Pacers</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('LA Clippers')">LA Clippers</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Los Angeles Lakers')">Los Angeles Lakers</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Memphis Grizzlies')">Memphis Grizzlies</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Miami Heat')">Miami Heat</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Milwaukee Bucks')">Milwaukee Bucks</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Minnesota Timberwolves')">Minnesota Timberwolves</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('New Orleans Pelicans')">New Orleans Pelicans</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('New York Knicks')">New York Knicks</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Oklahoma City Thunder')">Oklahoma City Thunder</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Orlando Magic')">Orlando Magic</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Philadelphia 76ers')">Philadelphia 76ers</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Phoenix Suns')">Phoenix Suns</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Portland Trail Blazers')">Portland Trail Blazers</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Sacramento Kings')">Sacramento Kings</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('San Antonio Spurs')">San Antonio Spurs</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Toronto Raptors')">Toronto Raptors</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Utah Jazz')">Utah Jazz</a>
+              <a class="dropdown-item" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="submitSearch('Washington Wizards')">Washington Wizards</a>
+            </div>
+          </li>
+        <li class="nav-item navButtons">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="changeToAbout()">About</a>
+        </li>
+      </ul>
+    </div>
+</nav>

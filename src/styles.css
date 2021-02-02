@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #30424a; color: white;}
+
+.loadingImg{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.statsTable{
+    background-color: #374b54;
+    margin: 0 auto;
+    width: 900px;
+}
+
+.statsTableHeader{
+    background-color: #435b66;
+}
+
+.statsTableWrapper{
+    width:100%;
+    overflow:auto;
+}
+
+
+.currentStats{
+    background-color: #435b66;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+}
+
+.contentBox{
+    background-color: #374b54;
+    border-radius: 10px;
+    padding-top: 10px;
+}
+
+th{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}

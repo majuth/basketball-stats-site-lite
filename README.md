@@ -1,17 +1,11 @@
-# BasketballStatsSite
+# BasketballStatsSiteLite
 
 ## Description
 Basketball Stats Site is a demo stats site that shows up to date NBA player and team statistics in an easy to use format. This website is not for profit and is simply a demo of my (Majuth Kirakalaprathapan) developer abilities.
 
 ## How to view the website
 
-The site can only be fully viewed by running it locally due to copyright concerns.
-NPM and GIT is required.
-
-1. Git clone this repository to your local machine
-2. Execute command in terminal: npm install
-3. Execute command in terminal: ng serve
-4. The site can now be viewed on localhost port 4200 (default)
+This site is being optimized to be viewed on the web, for local full view visit BasketballStatsSite (non-lite)
 
 
 ## How it works
